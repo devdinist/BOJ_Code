@@ -6,4 +6,5 @@
 도구 : NetBeans
 
 # C Code
+곧 
 도구 : Visual Studio Code
