@@ -12,6 +12,7 @@ public class acmhotel_10250 {
         int[][] hotel = null;
         int c_ase = Integer.parseInt(br.readLine());
         int current = 0;
+        
         while(current < c_ase){
             st = new StringTokenizer(br.readLine());
             int H = Integer.parseInt(st.nextToken());
@@ -20,21 +21,15 @@ public class acmhotel_10250 {
             int currentperson = 1;
             hotel = new int[H+1][W+1];
             
-            for (int i = 1; i < W+1; i++) {
-                int mcount = 100*H;
-                for (int j = 1; j < H+1; j++) {
-                    hotel[j][i] = mcount+i;
-                    mcount -= 100;
-                }
-            }
-            
-            find:for (int i = 1; i < W+1; i++) {
+            z:for (int i = 1; i < W+1; i++) {
+                int hcount = 100;
                 for (int j = H; j > 0; j--) {
-                    if (currentperson == N) {
+                    hotel[j][i] = hcount+i;
+                    if (currentperson++ == N) {
                         System.out.println(hotel[j][i]);
-                        break find;
+                        break z;
                     }else{
-                        currentperson++;
+                        hcount += 100;
                     }
                 }
             }
