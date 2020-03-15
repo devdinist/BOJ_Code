@@ -16,7 +16,6 @@ public class hanoi_11729 {
     }
     
     static void top(int size, int first, int second, int third){
-        if(size == 0) System.out.println("dd");
         if (size == 1) {
             s.append(first+" "+third+"\n");
         }else{
