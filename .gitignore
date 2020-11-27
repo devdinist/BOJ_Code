@@ -1,1 +1,7 @@
+# Directory ignore
 /random
+/out
+/.idea
+
+# File ignore
+*.iml
