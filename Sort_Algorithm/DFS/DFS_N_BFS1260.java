@@ -1,5 +1,3 @@
-package DFS;
-
 import java.io.*;
 import java.util.*;
 
@@ -15,51 +13,40 @@ class N{
     }
 }
 
-class Compare implements Comparator<Integer>{
-
-    @Override
-    public int compare(Integer o1, Integer o2) {
-        return o1.compareTo(o2);
-    }
-}
-
 public class DFS_N_BFS1260 {
     N[] arr;
     StringBuilder res_dfs;
     StringBuilder res_bfs;
 
     void add(int a, int b){
-        if(!arr[a].al.contains(b)) {
-            arr[a].al.add(b);
-        }
-        if(!arr[b].al.contains(a)){
-            arr[b].al.add(a);
-        }
+        if(!arr[a].al.contains(b)) arr[a].al.add(b);
+        if(!arr[b].al.contains(a)) arr[b].al.add(a);
     }
 
     void dfs(int a){
         if(!arr[a].is_visited){
             arr[a].is_visited = true;
             res_dfs.append(a).append(" ");
-            Collections.sort(arr[a].al, new Compare());
-            for(int i=0; i<arr[a].al.size(); i++){
-                dfs(arr[a].al.get(i));
+            Collections.sort(arr[a].al);
+            for(Integer i : arr[a].al){
+                dfs(i.intValue());
             }
         }
     }
 
-    void bfs(int start){
+    void bfs(int a){
         Queue<N> q = new LinkedList<>();
-        q.add(arr[start]);
+        q.add(arr[a]);
+
         while(!q.isEmpty()){
             N n = q.poll();
             if(!n.is_visited) {
                 n.is_visited = true;
                 res_bfs.append(n.index).append(" ");
-                Collections.sort(n.al, new Compare());
-                for(int i=0; i<n.al.size(); i++){
-                    if(!arr[n.al.get(i).intValue()].is_visited){
-                        q.add(arr[n.al.get(i).intValue()]);
+                for (Integer i : n.al) {
+                    int iv = i.intValue();
+                    if (!arr[iv].is_visited) {
+                        q.add(arr[iv]);
                     }
                 }
             }
