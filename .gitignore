@@ -1,8 +1,9 @@
 # Directory ignore
-/random
-/out
-/.idea
-/Sort_Algorithm/trash
+/Java/random
+/Java/out
+/Java/.idea
+/Java/Sort_Algorithm/trash
+/Cpp/trash
 
 # File ignore
 *.iml
