@@ -4,6 +4,7 @@
 /Java/.idea
 /Java/Sort_Algorithm/trash
 /Cpp/trash
+/Cpp/.vscode
 
 # File ignore
 *.iml
